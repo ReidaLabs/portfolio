@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Data Engineer & PM/PL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -23,12 +26,15 @@
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
+            font-family: 'Noto Sans JP', 'Yu Gothic', 'YuGothic', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e3a5f 100%);
             color: var(--dark);
-            line-height: 1.8;
+            line-height: 2;
             overflow-x: hidden;
             position: relative;
+            font-weight: 500;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body::before {
@@ -63,31 +69,34 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
+            font-size: 4.5rem;
+            margin-bottom: 25px;
             animation: fadeInUp 1s ease;
             color: var(--gold);
-            font-weight: 300;
-            letter-spacing: 8px;
+            font-weight: 900;
+            letter-spacing: 12px;
             text-transform: uppercase;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            text-shadow: 3px 3px 12px rgba(0,0,0,0.5);
+            font-family: 'Noto Serif JP', serif;
         }
 
         .hero p {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             opacity: 0.95;
             animation: fadeInUp 1s ease 0.2s backwards;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #e2e8f0;
+            font-weight: 600;
+            letter-spacing: 2px;
         }
 
         .hero .tagline {
-            margin-top: 20px;
-            font-size: 1.1rem;
-            opacity: 0.85;
+            margin-top: 25px;
+            font-size: 1.15rem;
+            opacity: 0.9;
             animation: fadeInUp 1s ease 0.4s backwards;
             color: var(--accent);
-            font-style: italic;
+            font-weight: 600;
+            letter-spacing: 1.5px;
         }
 
         /* Cards */
@@ -123,19 +132,24 @@
         .card h2 {
             color: var(--primary);
             margin-bottom: 25px;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             display: flex;
             align-items: center;
             gap: 15px;
-            font-weight: 400;
-            letter-spacing: 2px;
+            font-weight: 700;
+            letter-spacing: 3px;
         }
 
         .card h3 {
             color: var(--secondary);
             margin: 25px 0 15px;
-            font-size: 1.6rem;
-            font-weight: 400;
+            font-size: 1.7rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            font-weight: 500;
+            line-height: 2.2;
         }
 
         /* Highlight Section */
@@ -163,15 +177,16 @@
         .highlight-section h2 {
             color: var(--gold);
             margin-bottom: 20px;
-            font-size: 2rem;
-            letter-spacing: 2px;
+            font-size: 2.3rem;
+            letter-spacing: 3px;
+            font-weight: 700;
         }
 
         .highlight-section p {
             color: #e2e8f0;
-            font-size: 1.1rem;
-            line-height: 1.9;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.15rem;
+            line-height: 2.2;
+            font-weight: 500;
         }
 
         .highlight-badges {
@@ -184,13 +199,13 @@
         .highlight-badge {
             background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 100%);
             color: var(--dark);
-            padding: 12px 24px;
+            padding: 14px 28px;
             border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
             box-shadow: 0 4px 15px rgba(201, 169, 103, 0.4);
             transition: transform 0.3s ease;
+            letter-spacing: 1px;
         }
 
         .highlight-badge:hover {
@@ -222,11 +237,11 @@
 
         .skill-category h4 {
             margin-bottom: 18px;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             border-bottom: 2px solid var(--gold);
             padding-bottom: 12px;
-            font-weight: 400;
-            letter-spacing: 1px;
+            font-weight: 700;
+            letter-spacing: 2px;
         }
 
         .skill-tags {
@@ -238,13 +253,14 @@
 
         .skill-tag {
             background: rgba(201, 169, 103, 0.2);
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-radius: 6px;
-            font-size: 0.95rem;
+            font-size: 1rem;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(201, 169, 103, 0.4);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .skill-tag:hover {
@@ -278,37 +294,43 @@
 
         .timeline-period {
             color: var(--navy);
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 12px;
-            font-size: 1.15rem;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
         }
 
         .timeline-title {
-            font-size: 1.4rem;
-            font-weight: 400;
+            font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 12px;
             color: var(--dark);
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         .timeline-role {
             display: inline-block;
             background: linear-gradient(135deg, var(--navy) 0%, var(--secondary) 100%);
             color: white;
-            padding: 6px 16px;
+            padding: 8px 18px;
             border-radius: 6px;
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin-bottom: 15px;
             border: 1px solid var(--gold);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .timeline-details {
             color: var(--gray);
             margin: 15px 0;
-            line-height: 1.9;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 2.2;
+            font-weight: 500;
+        }
+
+        .timeline-details strong {
+            font-weight: 700;
+            color: var(--primary);
         }
 
         .timeline-tech {
@@ -321,12 +343,13 @@
         .tech-badge {
             background: white;
             color: var(--navy);
-            padding: 6px 14px;
+            padding: 8px 16px;
             border-radius: 6px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             border: 1px solid var(--navy);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .tech-badge:hover {
@@ -368,24 +391,26 @@
         }
 
         .cert-content {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
         }
 
         .cert-title {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.15rem;
+            font-weight: 700;
             margin-bottom: 5px;
+            letter-spacing: 0.5px;
         }
 
         .cert-badge {
             display: inline-block;
             background: var(--gold);
             color: var(--dark);
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            font-weight: 700;
             margin-top: 5px;
+            letter-spacing: 0.5px;
         }
 
         /* Animations */
@@ -412,12 +437,20 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
-                letter-spacing: 4px;
+                font-size: 2.8rem;
+                letter-spacing: 6px;
             }
 
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
+            }
+
+            .card h2 {
+                font-size: 2rem;
+            }
+
+            .highlight-section h2 {
+                font-size: 1.9rem;
             }
 
             .skills-grid {
@@ -430,6 +463,10 @@
 
             .cert-list {
                 grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 3rem;
             }
         }
 
@@ -474,18 +511,18 @@
         }
 
         .stat-number {
-            font-size: 3rem;
-            font-weight: 300;
+            font-size: 3.5rem;
+            font-weight: 700;
             margin-bottom: 12px;
             color: var(--gold);
-            font-family: 'Georgia', serif;
+            font-family: 'Noto Sans JP', sans-serif;
         }
 
         .stat-label {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             opacity: 0.95;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
     </style>
 </head>
