@@ -43,6 +43,14 @@
             letter-spacing: 4px;
         }
 
+        .name-svg {
+            margin-bottom: 20px;
+        }
+
+        .name-svg svg {
+            height: 2.5rem;
+        }
+
         .role {
             font-size: 1.3rem;
             font-weight: 600;
@@ -333,6 +341,11 @@
 <body>
     <div class="container">
         <header>
+            <div class="name-svg">
+                <svg viewBox="0 0 300 60" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="45" font-family="Noto Sans JP, sans-serif" font-size="40" font-weight="700" fill="#333">禮田　純一</text>
+                </svg>
+            </div>
             <h1>Portfolio</h1>
             <div class="role">データエンジニア / プロジェクトマネージャー / クラウドアーキテクト</div>
             <div class="summary">AWS × Python × データ分析基盤 | 2万人規模のシステム開発・運用経験</div>
@@ -360,17 +373,23 @@
         <div class="featured">
             <h3>注目している技術領域</h3>
             <p>
+                Amazon BedrockとLangChainを活用したAI-Agent開発に注力。自然言語による問い合わせで処理実績を分析・グラフ化するシステムや、EDIデータの商品名自動設定など、実務に即したAI活用を推進しています。Claude Codeによる開発効率化も積極的に導入し、コード品質の向上と開発スピードの両立を実現しています。
+            </p>
+            <p>
                 AWS環境にDifyをデプロイし、セキュアなマルチモーダルRAG（Retrieval-Augmented Generation）開発を実現。テキスト・画像・音声を統合したAIチャットボット構築により、次世代のデータ活用基盤を提供しています。
             </p>
             <p>
                 RedshiftからSnowflakeへの移行を主導し、Streamlitを活用したインタラクティブなWebアプリケーション開発を推進。データエンジニアリングとAI技術を融合させた、先進的な分析環境を構築しています。
             </p>
             <div class="tech-list">
+                <span class="tech-item">Claude Code</span>
+                <span class="tech-item">Amazon Bedrock</span>
+                <span class="tech-item">LangChain</span>
+                <span class="tech-item">AI-Agent</span>
                 <span class="tech-item">Dify</span>
                 <span class="tech-item">Streamlit</span>
                 <span class="tech-item">Snowflake</span>
                 <span class="tech-item">マルチモーダルRAG</span>
-                <span class="tech-item">AIチャットボット</span>
             </div>
         </div>
 
@@ -387,8 +406,9 @@
                 <div class="skill-group">
                     <h4>クラウド・インフラ</h4>
                     <ul>
-                        <li>AWS（EC2, Lambda, S3）</li>
+                        <li>AWS（EC2, Lambda, S3, Step Functions, EventBridge, DynamoDB）</li>
                         <li>Docker</li>
+                        <li>SFTP</li>
                     </ul>
                 </div>
                 <div class="skill-group">
@@ -424,8 +444,12 @@
                 <div class="skill-group">
                     <h4>AI・自動化</h4>
                     <ul>
+                        <li>Amazon Bedrock</li>
+                        <li>LangChain</li>
+                        <li>Claude Code</li>
                         <li>Dify</li>
                         <li>マルチモーダルRAG</li>
+                        <li>AI-Agent</li>
                         <li>Azure OpenAI</li>
                         <li>AIチャットボット</li>
                         <li>Selenium</li>
@@ -468,6 +492,47 @@
         <section>
             <h2>職務経歴</h2>
             <div class="experience">
+                <div class="job">
+                    <div class="job-period">2025年4月 - 2025年9月（6ヶ月）</div>
+                    <div class="job-title">ECサイト刷新プロジェクト</div>
+                    <div class="job-role">プロジェクトマネージャー / プロジェクトリーダー / プログラマー</div>
+                    <div class="job-desc">
+                        改修費50億円規模の大規模ECサイト刷新プロジェクトにおいて、利用者10万人を対象としたボリューム対応および認証システムの刷新を実施。EDI連携先企業60社との取引データを自動化処理する基盤を構築し、既存EDIシステムにおける人的工数の大幅な削減を実現しました。
+                        <strong>プロジェクト背景</strong>
+                        既存ECサイトの急激な取引増加に伴うボリューム対応の必要性と、セキュリティ強化を目的とした認証システムの全面刷新が求められていました。また、EDI（電子データ交換）における手作業での商品情報管理や価格設定が業務負荷となっており、自動化による効率化が急務となっていました。
+                        <strong>主な実績</strong>
+                        <ul>
+                            <li>Claude Codeを活用した開発効率化およびコード品質向上</li>
+                            <li>Amazon BedrockとLangChainによるEDIデータの商品名自動設定機能の開発</li>
+                            <li>流通BMS（CII標準）準拠のフォーマット自動変換システム構築</li>
+                            <li>Step Functions、Lambda、EventBridgeを組み合わせた大規模バッチ処理基盤の設計・実装</li>
+                            <li>DynamoDBを用いた商品変更管理システムの構築</li>
+                            <li>自動画像リサイズ処理による商品画像の最適化（複数サイズの自動生成）</li>
+                            <li>AIによる自動仕切り・売価設定ロジックの開発</li>
+                            <li>SFTPによる取引先とのセキュアなファイル連携基盤構築</li>
+                            <li>WEB-EDIシステムでの受信データ処理および変換データ・発注データの自動送信機能実装</li>
+                            <li>ファイルアップロードWEBアプリケーションの開発（ドラッグ&ドロップ対応）</li>
+                            <li>処理実績応答AI-Agentの開発（自然言語による問い合わせで処理実績を分析・グラフ化）</li>
+                        </ul>
+                        <strong>プロジェクト成果</strong>
+                        EDIデータ処理における手作業を90%削減し、商品情報の登録・更新作業時間を従来比70%短縮。AI-Agentの導入により、業務担当者がSQLを書くことなく自然言語で「先週の取引実績を教えて」「今月の発注データをグラフで表示」などの問い合わせが可能となり、データ活用の民主化を実現しました。
+                    </div>
+                    <div class="job-tech">
+                        <strong>使用技術：</strong>
+                        <span class="highlight-tech">Claude Code</span>
+                        <span class="highlight-tech">Amazon Bedrock</span>
+                        <span class="highlight-tech">LangChain</span>
+                        <span class="highlight-tech">AI-Agent</span>
+                        <span>Step Functions</span>
+                        <span>Lambda</span>
+                        <span>EventBridge</span>
+                        <span>DynamoDB</span>
+                        <span>SFTP</span>
+                        <span>WEB-EDI</span>
+                        <span>流通BMS（CII標準）</span>
+                    </div>
+                </div>
+
                 <div class="job">
                     <div class="job-period">2018年10月 - 2025年3月（6年6ヶ月）</div>
                     <div class="job-title">情報基盤システム構築及びセルフBI展開</div>
