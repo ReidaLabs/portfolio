@@ -6,7 +6,7 @@
     <title>Portfolio - Data Engineer & PM/PL</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&family=Noto+Serif+JP:wght@600;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,829 +14,588 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #1e293b;
-            --secondary: #334155;
-            --accent: #c9a967;
-            --gold: #d4af37;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --navy: #1e3a5f;
-        }
-
         body {
-            font-family: 'Noto Sans JP', 'Yu Gothic', 'YuGothic', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e3a5f 100%);
-            color: var(--dark);
+            font-family: 'Noto Sans JP', sans-serif;
+            background: #fafafa;
+            color: #333;
             line-height: 2;
-            overflow-x: hidden;
-            position: relative;
             font-weight: 500;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(ellipse at 20% 20%, rgba(201, 169, 103, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(30, 58, 95, 0.2) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
+            padding: 60px 30px;
         }
 
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            color: white;
-            position: relative;
-            border-bottom: 2px solid var(--gold);
+        /* ヘッダー */
+        header {
+            margin-bottom: 80px;
+            border-bottom: 3px solid #333;
+            padding-bottom: 30px;
         }
 
-        .hero h1 {
-            font-size: 4.5rem;
-            margin-bottom: 25px;
-            animation: fadeInUp 1s ease;
-            color: var(--gold);
-            font-weight: 900;
-            letter-spacing: 12px;
-            text-transform: uppercase;
-            text-shadow: 3px 3px 12px rgba(0,0,0,0.5);
+        h1 {
             font-family: 'Noto Serif JP', serif;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease 0.2s backwards;
-            color: #e2e8f0;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-
-        .hero .tagline {
-            margin-top: 25px;
-            font-size: 1.15rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.4s backwards;
-            color: var(--accent);
-            font-weight: 600;
-            letter-spacing: 1.5px;
-        }
-
-        /* Cards */
-        .card {
-            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-            border-radius: 12px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeIn 0.8s ease;
-            border: 1px solid rgba(201, 169, 103, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--gold) 0%, var(--accent) 100%);
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 70px rgba(0,0,0,0.4);
-            border-color: var(--gold);
-        }
-
-        .card h2 {
-            color: var(--primary);
-            margin-bottom: 25px;
-            font-size: 2.4rem;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-weight: 700;
-            letter-spacing: 3px;
-        }
-
-        .card h3 {
-            color: var(--secondary);
-            margin: 25px 0 15px;
-            font-size: 1.7rem;
-            font-weight: 700;
-        }
-
-        .card p {
-            font-weight: 500;
-            line-height: 2.2;
-        }
-
-        /* Highlight Section */
-        .highlight-section {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--primary) 100%);
-            border-radius: 12px;
-            padding: 35px;
-            margin: 30px 0;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-            border: 2px solid var(--gold);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .highlight-section::before {
-            content: '★';
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 4rem;
-            color: var(--gold);
-            opacity: 0.2;
-        }
-
-        .highlight-section h2 {
-            color: var(--gold);
-            margin-bottom: 20px;
-            font-size: 2.3rem;
-            letter-spacing: 3px;
-            font-weight: 700;
-        }
-
-        .highlight-section p {
-            color: #e2e8f0;
-            font-size: 1.15rem;
-            line-height: 2.2;
-            font-weight: 500;
-        }
-
-        .highlight-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .highlight-badge {
-            background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 100%);
-            color: var(--dark);
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-size: 1.15rem;
-            font-weight: 700;
-            box-shadow: 0 4px 15px rgba(201, 169, 103, 0.4);
-            transition: transform 0.3s ease;
-            letter-spacing: 1px;
-        }
-
-        .highlight-badge:hover {
-            transform: scale(1.05);
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
-        }
-
-        .skill-category {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--secondary) 100%);
-            padding: 25px;
-            border-radius: 12px;
-            color: white;
-            border: 1px solid rgba(201, 169, 103, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .skill-category:hover {
-            border-color: var(--gold);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(201, 169, 103, 0.3);
-        }
-
-        .skill-category h4 {
-            margin-bottom: 18px;
-            font-size: 1.4rem;
-            border-bottom: 2px solid var(--gold);
-            padding-bottom: 12px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .skill-tag {
-            background: rgba(201, 169, 103, 0.2);
-            padding: 10px 18px;
-            border-radius: 6px;
-            font-size: 1rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(201, 169, 103, 0.4);
-            transition: all 0.3s ease;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .skill-tag:hover {
-            background: var(--gold);
-            color: var(--dark);
-            border-color: var(--gold);
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding: 25px 0;
-        }
-
-        .timeline-item {
-            margin: 35px 0;
-            padding: 30px;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            border-radius: 12px;
-            border-left: 5px solid var(--gold);
-            position: relative;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .timeline-item:hover {
-            transform: translateX(8px);
-            border-left-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .timeline-period {
-            color: var(--navy);
-            font-weight: 700;
-            margin-bottom: 12px;
-            font-size: 1.2rem;
-            letter-spacing: 0.5px;
-        }
-
-        .timeline-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--dark);
-            letter-spacing: 1.5px;
-        }
-
-        .timeline-role {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 8px 18px;
-            border-radius: 6px;
-            font-size: 1rem;
+            font-size: 3rem;
+            font-weight: 900;
             margin-bottom: 15px;
-            border: 1px solid var(--gold);
+            letter-spacing: 4px;
+        }
+
+        .role {
+            font-size: 1.3rem;
             font-weight: 600;
-            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            color: #555;
         }
 
-        .timeline-details {
-            color: var(--gray);
-            margin: 15px 0;
-            line-height: 2.2;
-            font-weight: 500;
-        }
-
-        .timeline-details strong {
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .timeline-tech {
-            margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .tech-badge {
-            background: white;
-            color: var(--navy);
-            padding: 8px 16px;
-            border-radius: 6px;
+        .summary {
             font-size: 0.95rem;
-            border: 1px solid var(--navy);
-            transition: all 0.3s ease;
+            color: #777;
+            font-weight: 400;
+        }
+
+        /* 実績数値 */
+        .metrics {
+            display: flex;
+            justify-content: space-between;
+            margin: 60px 0;
+            padding: 40px 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            font-family: 'Noto Serif JP', serif;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: #666;
             font-weight: 600;
-            letter-spacing: 0.5px;
         }
 
-        .tech-badge:hover {
-            background: var(--gold);
-            color: var(--dark);
-            border-color: var(--gold);
+        /* セクション */
+        section {
+            margin-bottom: 70px;
         }
 
-        /* Certifications */
-        .cert-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #333;
+            letter-spacing: 2px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            margin-top: 35px;
+        }
+
+        /* 注目技術 */
+        .featured {
+            background: #f5f5f5;
+            padding: 35px;
+            margin: 50px 0;
+            border-left: 5px solid #333;
+        }
+
+        .featured h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+
+        .featured p {
+            margin-bottom: 15px;
+            line-height: 2;
+        }
+
+        .tech-list {
             margin-top: 25px;
+        }
+
+        .tech-item {
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 8px 0;
+            border-bottom: 2px solid #333;
+        }
+
+        /* スキル */
+        .skills-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .skill-group h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            padding-left: 15px;
+            border-left: 3px solid #333;
+        }
+
+        .skill-group ul {
+            list-style: none;
+            padding-left: 15px;
+        }
+
+        .skill-group li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .skill-group li::before {
+            content: "・";
+            margin-right: 8px;
+            font-weight: 700;
+        }
+
+        /* 資格 */
+        .certifications {
+            margin-top: 30px;
         }
 
         .cert-item {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--primary) 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            margin-bottom: 18px;
+            padding-left: 20px;
+            position: relative;
         }
 
-        .cert-item:hover {
-            transform: scale(1.03);
-            border-color: var(--gold);
-            box-shadow: 0 12px 35px rgba(201, 169, 103, 0.4);
+        .cert-item::before {
+            content: "■";
+            position: absolute;
+            left: 0;
+            font-size: 0.7rem;
         }
 
-        .cert-icon {
-            font-size: 2.5rem;
-            min-width: 50px;
-        }
-
-        .cert-content {
-            line-height: 1.8;
-        }
-
-        .cert-title {
-            font-size: 1.15rem;
+        .cert-item strong {
             font-weight: 700;
-            margin-bottom: 5px;
-            letter-spacing: 0.5px;
         }
 
-        .cert-badge {
+        .cert-item span {
+            color: #666;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+
+        /* 職務経歴 */
+        .experience {
+            margin-top: 30px;
+        }
+
+        .job {
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .job:last-child {
+            border-bottom: none;
+        }
+
+        .job-period {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .job-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .job-role {
             display: inline-block;
-            background: var(--gold);
-            color: var(--dark);
-            padding: 5px 12px;
-            border-radius: 4px;
+            background: #333;
+            color: white;
+            padding: 4px 12px;
             font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .job-desc {
+            margin-bottom: 15px;
+            line-height: 2;
+        }
+
+        .job-desc strong {
             font-weight: 700;
-            margin-top: 5px;
-            letter-spacing: 0.5px;
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 8px;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .job-desc ul {
+            margin: 10px 0 10px 25px;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .job-desc li {
+            margin-bottom: 6px;
         }
 
-        /* Responsive */
+        .job-tech {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .job-tech strong {
+            color: #333;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .job-tech span {
+            margin-right: 12px;
+            white-space: nowrap;
+        }
+
+        .highlight-tech {
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* フッター */
+        footer {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        /* レスポンシブ */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-                letter-spacing: 6px;
+            .container {
+                padding: 40px 20px;
             }
 
-            .hero p {
-                font-size: 1.2rem;
+            h1 {
+                font-size: 2.2rem;
+                letter-spacing: 2px;
             }
 
-            .card h2 {
+            .metrics {
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+
+            .metric {
+                flex: 1 1 40%;
+            }
+
+            .metric-value {
                 font-size: 2rem;
             }
 
-            .highlight-section h2 {
-                font-size: 1.9rem;
-            }
-
-            .skills-grid {
+            .skills-section {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
 
-            .card {
+            .featured {
                 padding: 25px;
             }
 
-            .cert-list {
-                grid-template-columns: 1fr;
+            h2 {
+                font-size: 1.5rem;
             }
-
-            .stat-number {
-                font-size: 3rem;
-            }
-        }
-
-        /* Section Icons */
-        .section-icon {
-            display: inline-block;
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--gold), var(--accent));
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark);
-            font-size: 1.6rem;
-            box-shadow: 0 4px 15px rgba(201, 169, 103, 0.4);
-        }
-
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--primary) 100%);
-            color: white;
-            padding: 35px;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--gold);
-            box-shadow: 0 15px 40px rgba(201, 169, 103, 0.4);
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--gold);
-            font-family: 'Noto Sans JP', sans-serif;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.95;
-            letter-spacing: 1.5px;
-            font-weight: 600;
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>Portfolio</h1>
-        <p>Data Engineer / PM・PL / Cloud Architect</p>
-        <p class="tagline">AWS × Python × データ分析基盤 | 2万人規模のシステム開発・運用経験</p>
-    </div>
-
     <div class="container">
-        <!-- Stats Section -->
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-number">19年</div>
-                <div class="stat-label">実務経験</div>
+        <header>
+            <h1>Portfolio</h1>
+            <div class="role">データエンジニア / プロジェクトマネージャー / クラウドアーキテクト</div>
+            <div class="summary">AWS × Python × データ分析基盤 | 2万人規模のシステム開発・運用経験</div>
+        </header>
+
+        <div class="metrics">
+            <div class="metric">
+                <span class="metric-value">19年</span>
+                <span class="metric-label">実務経験</span>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">2万人</div>
-                <div class="stat-label">対象社員規模</div>
+            <div class="metric">
+                <span class="metric-value">2万人</span>
+                <span class="metric-label">対象規模</span>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">60+本/年</div>
-                <div class="stat-label">リリース実績</div>
+            <div class="metric">
+                <span class="metric-value">60+本</span>
+                <span class="metric-label">年間リリース</span>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">80億件</div>
-                <div class="stat-label">販売データ</div>
+            <div class="metric">
+                <span class="metric-value">80億件</span>
+                <span class="metric-label">販売データ</span>
             </div>
         </div>
 
-        <!-- AI & Modern Tech Highlight -->
-        <div class="highlight-section">
-            <h2>🌟 最新技術への取り組み</h2>
+        <div class="featured">
+            <h3>注目している技術領域</h3>
             <p>
-                <strong>AI駆動型データソリューション開発</strong><br>
-                AWS環境にDifyをデプロイし、セキュアなマルチモーダルRAG（Retrieval-Augmented Generation）開発を実現。
-                テキスト・画像・音声を統合したAIチャットボット構築により、次世代のデータ活用基盤を提供しています。
+                AWS環境にDifyをデプロイし、セキュアなマルチモーダルRAG（Retrieval-Augmented Generation）開発を実現。テキスト・画像・音声を統合したAIチャットボット構築により、次世代のデータ活用基盤を提供しています。
             </p>
-            <p style="margin-top: 15px;">
-                <strong>Snowflake × Streamlitによるモダンデータ基盤</strong><br>
-                RedshiftからSnowflakeへの移行を主導し、Streamlitを活用したインタラクティブなWebアプリケーション開発を推進。
-                データエンジニアリングとAI技術を融合させた、先進的な分析環境を構築しています。
+            <p>
+                RedshiftからSnowflakeへの移行を主導し、Streamlitを活用したインタラクティブなWebアプリケーション開発を推進。データエンジニアリングとAI技術を融合させた、先進的な分析環境を構築しています。
             </p>
-            <div class="highlight-badges">
-                <div class="highlight-badge">Dify</div>
-                <div class="highlight-badge">Streamlit</div>
-                <div class="highlight-badge">Snowflake</div>
-                <div class="highlight-badge">マルチモーダルRAG</div>
-                <div class="highlight-badge">AIチャットボット</div>
+            <div class="tech-list">
+                <span class="tech-item">Dify</span>
+                <span class="tech-item">Streamlit</span>
+                <span class="tech-item">Snowflake</span>
+                <span class="tech-item">マルチモーダルRAG</span>
+                <span class="tech-item">AIチャットボット</span>
             </div>
         </div>
 
-        <!-- About Section -->
-        <div class="card">
-            <h2>
-                <span class="section-icon">👨‍💻</span>
-                About
-            </h2>
+        <section>
+            <h2>概要</h2>
             <p>簿記2級と経理実務経験を持つバックグラウンドを活かし、財務視点と技術力を融合したデータ活用を実現。AWS環境のアーキテクチャ設計から実装まで、ワンストップで対応可能です。</p>
-            <br>
-            <p>要件定義から設計、開発、テスト、運用までのフルサイクル対応が可能なPM/PLとして、技術的課題と業務要件の橋渡しを実現。経営層の意思決定を支える情報提供を実施してきました。</p>
-            <br>
-            <p>直近では<strong>AIを活用した取り組み</strong>として、AWS環境内に<strong>Dify</strong>をデプロイしてセキュアな<strong>マルチモーダルRAG開発</strong>や<strong>AIチャットボット構築</strong>に注力。<strong>Snowflake</strong>と<strong>Streamlit</strong>を組み合わせた次世代データ分析基盤の構築を推進しています。</p>
-        </div>
+            <p>要件定義から設計、開発、テスト、運用までのフルサイクル対応が可能なプロジェクトマネージャー／プロジェクトリーダーとして、技術的課題と業務要件の橋渡しを実現。経営層の意思決定を支える情報提供を実施してきました。</p>
+            <p>直近ではAIを活用した取り組みとして、AWS環境内にDifyをデプロイしてセキュアなマルチモーダルRAG開発やAIチャットボット構築に注力。SnowflakeとStreamlitを組み合わせた次世代データ分析基盤の構築を推進しています。</p>
+        </section>
 
-        <!-- Skills Section -->
-        <div class="card">
-            <h2>
-                <span class="section-icon">🛠️</span>
-                Technical Skills
-            </h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>☁️ Cloud & Infrastructure</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">EC2</span>
-                        <span class="skill-tag">Lambda</span>
-                        <span class="skill-tag">S3</span>
-                        <span class="skill-tag">Docker</span>
-                    </div>
+        <section>
+            <h2>保有技術</h2>
+            <div class="skills-section">
+                <div class="skill-group">
+                    <h4>クラウド・インフラ</h4>
+                    <ul>
+                        <li>AWS（EC2, Lambda, S3）</li>
+                        <li>Docker</li>
+                    </ul>
                 </div>
-                <div class="skill-category">
-                    <h4>🗄️ Database & DWH</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Snowflake ⭐</span>
-                        <span class="skill-tag">Redshift</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">Oracle</span>
-                        <span class="skill-tag">SQL Server</span>
-                        <span class="skill-tag">MariaDB</span>
-                    </div>
+                <div class="skill-group">
+                    <h4>データベース・DWH</h4>
+                    <ul>
+                        <li>Snowflake</li>
+                        <li>Redshift</li>
+                        <li>PostgreSQL</li>
+                        <li>Oracle</li>
+                        <li>SQL Server</li>
+                        <li>MariaDB</li>
+                    </ul>
                 </div>
-                <div class="skill-category">
-                    <h4>💻 Programming</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">VBA</span>
-                        <span class="skill-tag">Lotus Script</span>
-                    </div>
+                <div class="skill-group">
+                    <h4>プログラミング</h4>
+                    <ul>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>SQL</li>
+                        <li>VBA</li>
+                        <li>Lotus Script</li>
+                    </ul>
                 </div>
-                <div class="skill-category">
-                    <h4>📊 Data & Analytics</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Streamlit ⭐</span>
-                        <span class="skill-tag">Quicksight</span>
-                        <span class="skill-tag">Matillion</span>
-                        <span class="skill-tag">Databricks</span>
-                    </div>
+                <div class="skill-group">
+                    <h4>データ分析・BI</h4>
+                    <ul>
+                        <li>Streamlit</li>
+                        <li>Quicksight</li>
+                        <li>Matillion</li>
+                        <li>Databricks</li>
+                    </ul>
                 </div>
-                <div class="skill-category">
-                    <h4>🤖 AI & Automation</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Dify ⭐</span>
-                        <span class="skill-tag">マルチモーダルRAG ⭐</span>
-                        <span class="skill-tag">Azure OpenAI</span>
-                        <span class="skill-tag">AIチャットボット ⭐</span>
-                        <span class="skill-tag">Selenium</span>
-                        <span class="skill-tag">RPA</span>
-                    </div>
+                <div class="skill-group">
+                    <h4>AI・自動化</h4>
+                    <ul>
+                        <li>Dify</li>
+                        <li>マルチモーダルRAG</li>
+                        <li>Azure OpenAI</li>
+                        <li>AIチャットボット</li>
+                        <li>Selenium</li>
+                        <li>RPA</li>
+                    </ul>
                 </div>
-                <div class="skill-category">
-                    <h4>🔧 Tools & Others</h4>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Github</span>
-                        <span class="skill-tag">Redmine</span>
-                        <span class="skill-tag">Kintone</span>
-                    </div>
+                <div class="skill-group">
+                    <h4>ツール・その他</h4>
+                    <ul>
+                        <li>Github</li>
+                        <li>Redmine</li>
+                        <li>Kintone</li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Certifications -->
-        <div class="card">
-            <h2>
-                <span class="section-icon">🏆</span>
-                Certifications
-            </h2>
-            <div class="cert-list">
+        <section>
+            <h2>資格</h2>
+            <div class="certifications">
                 <div class="cert-item">
-                    <div class="cert-icon">☁️</div>
-                    <div class="cert-content">
-                        <div class="cert-title">AWS Certified Solutions Architect - Associate</div>
-                        <div class="cert-badge">AWS SAA</div>
-                    </div>
+                    <strong>AWS認定ソリューションアーキテクト – アソシエイト</strong>
+                    <span>AWS SAA</span>
                 </div>
                 <div class="cert-item">
-                    <div class="cert-icon">☁️</div>
-                    <div class="cert-content">
-                        <div class="cert-title">AWS Certified Cloud Practitioner</div>
-                        <div class="cert-badge">AWS CCP</div>
-                    </div>
+                    <strong>AWS認定クラウドプラクティショナー</strong>
+                    <span>AWS CCP</span>
                 </div>
                 <div class="cert-item">
-                    <div class="cert-icon">📊</div>
-                    <div class="cert-content">
-                        <div class="cert-title">簿記2級</div>
-                        <div class="cert-badge">会計</div>
-                    </div>
+                    <strong>日商簿記検定2級</strong>
+                    <span>会計</span>
                 </div>
                 <div class="cert-item">
-                    <div class="cert-icon">⚙️</div>
-                    <div class="cert-content">
-                        <div class="cert-title">Kintoneアソシエイト</div>
-                        <div class="cert-badge">業務アプリ</div>
-                    </div>
+                    <strong>Kintoneアソシエイト</strong>
+                    <span>業務アプリ</span>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Experience Timeline -->
-        <div class="card">
-            <h2>
-                <span class="section-icon">📈</span>
-                Work Experience
-            </h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-period">2018年10月 - 2025年3月 (6年6ヶ月)</div>
-                    <div class="timeline-title">情報基盤システム(DWH)構築及びセルフBI展開</div>
-                    <div class="timeline-role">PM / PL / PG</div>
-                    <div class="timeline-details">
-                        <strong>プロジェクト概要：</strong><br>
-                        利用者約2万人に80億を超える販売データをベースに、経営層・管理部門・戦略部門・営業部門からの要望に合わせたメンテナンスフリーのデータ分析をBIツールを用い提供
-                        <br><br>
-                        <strong>主な実績：</strong>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li><strong>AIを使ったマルチモーダルRAG開発</strong>（テキスト・画像・音声統合）</li>
-                            <li><strong>Difyを使ったセキュアなAIチャットボット構築</strong></li>
-                            <li><strong>RedshiftからSnowflakeへの情報基盤移行</strong></li>
-                            <li><strong>Streamlit + Pythonによる販売分析AIのWebアプリ開発</strong></li>
-                            <li>情報基盤(Redshiftを使ったDWH)の立ち上げ</li>
+        <section>
+            <h2>職務経歴</h2>
+            <div class="experience">
+                <div class="job">
+                    <div class="job-period">2018年10月 - 2025年3月（6年6ヶ月）</div>
+                    <div class="job-title">情報基盤システム構築及びセルフBI展開</div>
+                    <div class="job-role">PM / PL / PG</div>
+                    <div class="job-desc">
+                        利用者約2万人に80億を超える販売データをベースに、経営層・管理部門・戦略部門・営業部門からの要望に合わせたメンテナンスフリーのデータ分析をBIツールを用い提供。
+                        <strong>主な実績</strong>
+                        <ul>
+                            <li>AIを使ったマルチモーダルRAG開発（テキスト・画像・音声統合）</li>
+                            <li>Difyを使ったセキュアなAIチャットボット構築</li>
+                            <li>RedshiftからSnowflakeへの情報基盤移行</li>
+                            <li>Streamlit + Pythonによる販売分析AIのWebアプリ開発</li>
+                            <li>情報基盤（Redshift使用DWH）の立ち上げ</li>
                             <li>AWS S3を使ったDatalakeの立ち上げ</li>
-                            <li>BIツール(Quicksight)を使った情報活用のPM/PL</li>
-                            <li>AWS EC2を使ったWebアプリ開発(Streamlit+Python)</li>
-                            <li>AWS Lambdaを使ったRPA開発(Selenium)</li>
+                            <li>BIツール（Quicksight）を使った情報活用のPM/PL</li>
+                            <li>AWS EC2を使ったWebアプリ開発（Streamlit+Python）</li>
+                            <li>AWS Lambdaを使ったRPA開発（Selenium）</li>
                             <li>タスク管理ツールRedmineの立ち上げとplugin開発</li>
                         </ul>
                     </div>
-                    <div class="timeline-tech">
-                        <span class="tech-badge" style="background: var(--gold); color: var(--dark); font-weight: 600;">Dify</span>
-                        <span class="tech-badge" style="background: var(--gold); color: var(--dark); font-weight: 600;">Streamlit</span>
-                        <span class="tech-badge" style="background: var(--gold); color: var(--dark); font-weight: 600;">Snowflake</span>
-                        <span class="tech-badge" style="background: var(--gold); color: var(--dark); font-weight: 600;">マルチモーダルRAG</span>
-                        <span class="tech-badge">AWS</span>
-                        <span class="tech-badge">Redshift</span>
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">Quicksight</span>
-                        <span class="tech-badge">Matillion</span>
-                        <span class="tech-badge">Docker</span>
+                    <div class="job-tech">
+                        <strong>使用技術：</strong>
+                        <span class="highlight-tech">Dify</span>
+                        <span class="highlight-tech">Streamlit</span>
+                        <span class="highlight-tech">Snowflake</span>
+                        <span class="highlight-tech">マルチモーダルRAG</span>
+                        <span>AWS</span>
+                        <span>Redshift</span>
+                        <span>Python</span>
+                        <span>Quicksight</span>
+                        <span>Matillion</span>
+                        <span>Docker</span>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-period">2015年4月 - 2018年9月 (3年6ヶ月)</div>
-                    <div class="timeline-title">社内情報活用ツール開発</div>
-                    <div class="timeline-role">PM / PG</div>
-                    <div class="timeline-details">
-                        <strong>プロジェクト概要：</strong><br>
-                        基幹システムでは得られない管理・業務に沿ったデータ提供の仕組み構築（168テーマ）
-                        <br><br>
-                        <strong>主な実績：</strong>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
-                            <li>4億レコードを超える実績情報を元にした各種集計</li>
+                <div class="job">
+                    <div class="job-period">2015年4月 - 2018年9月（3年6ヶ月）</div>
+                    <div class="job-title">社内情報活用ツール開発</div>
+                    <div class="job-role">PM / PG</div>
+                    <div class="job-desc">
+                        基幹システムでは得られない管理・業務に沿ったデータ提供の仕組み構築。
+                        <strong>主な実績</strong>
+                        <ul>
+                            <li>4億レコードを超える実績情報を元にした各種集計（168テーマ）</li>
                             <li>複数の基幹システムのデータ統合</li>
                             <li>業務改善相談から企画提案・設計・開発・テスト・保守まで担当</li>
                         </ul>
                     </div>
-                    <div class="timeline-tech">
-                        <span class="tech-badge">Oracle</span>
-                        <span class="tech-badge">SQL</span>
-                        <span class="tech-badge">軽技WEB</span>
+                    <div class="job-tech">
+                        <strong>使用技術：</strong>
+                        <span>Oracle</span>
+                        <span>SQL</span>
+                        <span>軽技WEB</span>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-period">2017年1月 - 2017年9月 (9ヶ月)</div>
-                    <div class="timeline-title">IT導入補助金請求システム構築</div>
-                    <div class="timeline-role">PM / PG</div>
-                    <div class="timeline-details">
-                        <strong>プロジェクト概要：</strong><br>
-                        経済産業省支援のIT導入補助金の仕様に沿ったシステムを緊急開発（開発期間：1週間 + 半年の改修）
-                        <br><br>
-                        <strong>システム機能：</strong>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
+                <div class="job">
+                    <div class="job-period">2017年1月 - 2017年9月（9ヶ月）</div>
+                    <div class="job-title">IT導入補助金請求システム構築</div>
+                    <div class="job-role">PM / PG</div>
+                    <div class="job-desc">
+                        経済産業省支援のIT導入補助金の仕様に沿ったシステムを緊急開発（開発期間：1週間 + 半年の改修）。
+                        <strong>システム機能</strong>
+                        <ul>
                             <li>見積書・請求書・領収書・検収書作成</li>
                             <li>売上管理、入金管理、マスタ管理</li>
                             <li>営業システムとの連携、会計システムとの連携</li>
                             <li>長期契約書保管機能</li>
                         </ul>
                     </div>
-                    <div class="timeline-tech">
-                        <span class="tech-badge">IBM Notes</span>
-                        <span class="tech-badge">VBA</span>
-                        <span class="tech-badge">Lotus Script</span>
-                        <span class="tech-badge">RPA</span>
+                    <div class="job-tech">
+                        <strong>使用技術：</strong>
+                        <span>IBM Notes</span>
+                        <span>VBA</span>
+                        <span>Lotus Script</span>
+                        <span>RPA</span>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-period">2012年4月 - 2015年3月 (3年)</div>
-                    <div class="timeline-title">自動売上計上システム</div>
-                    <div class="timeline-role">PM / PG</div>
-                    <div class="timeline-details">
-                        <strong>プロジェクト概要：</strong><br>
-                        AS400と基幹システム(WEBアプリ)の情報を使った自動売上・納品書発行のRPA企画・設計・開発（バージョンアップ129回）
-                        <br><br>
-                        <strong>主な実績：</strong>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
+                <div class="job">
+                    <div class="job-period">2012年4月 - 2015年3月（3年）</div>
+                    <div class="job-title">自動売上計上システム</div>
+                    <div class="job-role">PM / PG</div>
+                    <div class="job-desc">
+                        AS400と基幹システム（WEBアプリ）の情報を使った自動売上・納品書発行のRPA企画・設計・開発（バージョンアップ129回）。
+                        <strong>主な実績</strong>
+                        <ul>
                             <li>月1万件以上実施されている売上計上の半自動化</li>
                             <li>顧客別納品書出力の自動化</li>
                             <li>全国の業務センターと共有しながら標準ツールとして展開</li>
                         </ul>
                     </div>
-                    <div class="timeline-tech">
-                        <span class="tech-badge">VBA</span>
-                        <span class="tech-badge">RPA</span>
-                        <span class="tech-badge">ACCESS</span>
-                        <span class="tech-badge">AS400</span>
+                    <div class="job-tech">
+                        <strong>使用技術：</strong>
+                        <span>VBA</span>
+                        <span>RPA</span>
+                        <span>ACCESS</span>
+                        <span>AS400</span>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-period">2006年7月 - 2012年3月 (5年9ヶ月)</div>
-                    <div class="timeline-title">販売管理システム構築</div>
-                    <div class="timeline-role">PM / PG</div>
-                    <div class="timeline-details">
-                        <strong>プロジェクト概要：</strong><br>
-                        AccessをDBとしエクセルから参照・更新するシステムの開発（毎月1回のバージョンアップ）
-                        <br><br>
-                        <strong>システム機能：</strong>
-                        <ul style="margin-left: 20px; margin-top: 10px;">
+                <div class="job">
+                    <div class="job-period">2006年7月 - 2012年3月（5年9ヶ月）</div>
+                    <div class="job-title">販売管理システム構築</div>
+                    <div class="job-role">PM / PG</div>
+                    <div class="job-desc">
+                        AccessをDBとしエクセルから参照・更新するシステムの開発（毎月1回のバージョンアップ）。
+                        <strong>システム機能</strong>
+                        <ul>
                             <li>請求書到着管理</li>
                             <li>取引先別支払条件一覧作成</li>
                             <li>支払い明細作成</li>
                             <li>支払い変更RPAの自動化</li>
                         </ul>
                     </div>
-                    <div class="timeline-tech">
-                        <span class="tech-badge">ACCESS</span>
-                        <span class="tech-badge">VBA</span>
-                        <span class="tech-badge">RPA</span>
+                    <div class="job-tech">
+                        <strong>使用技術：</strong>
+                        <span>ACCESS</span>
+                        <span>VBA</span>
+                        <span>RPA</span>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Footer -->
-        <div style="text-align: center; padding: 50px 20px; color: var(--gold); border-top: 1px solid rgba(201, 169, 103, 0.3); margin-top: 40px;">
-            <p style="opacity: 0.85; font-size: 0.95rem; letter-spacing: 1px;">© 2025 Portfolio. All rights reserved.</p>
-        </div>
+        <footer>
+            <p>&copy; 2025 Portfolio. All rights reserved.</p>
+        </footer>
     </div>
 </body>
 </html>
