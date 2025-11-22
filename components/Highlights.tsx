@@ -45,7 +45,7 @@ export const Highlights: React.FC = () => {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
-                    className="text-slate-300 leading-loose mb-10 font-light text-justify tracking-wide"
+                    className="text-slate-700 leading-loose mb-10 font-light text-justify tracking-wide"
                   >
                      PMとして大規模プロジェクトを推進する傍ら、アーキテクトとしてDifyを活用したセキュアなRAG環境を構築。
                      SnowflakeとStreamlitを組み合わせ、生データから意思決定に必要なインサイトを即座に可視化する
@@ -78,9 +78,9 @@ export const Highlights: React.FC = () => {
                         <div className="p-2 rounded bg-navy-900 border border-slate-800 text-gold-400 group-hover:border-gold-500/30 transition-colors">
                           <Bot size={20} />
                         </div>
-                        <h4 className="text-lg font-serif text-slate-200 group-hover:text-gold-200 transition-colors">AI Chatbot Architecture</h4>
+                        <h4 className="text-lg font-serif text-slate-800 group-hover:text-gold-200 transition-colors">AI Chatbot Architecture</h4>
                       </div>
-                      <p className="text-sm text-slate-400 leading-relaxed pl-11 border-l border-slate-800 ml-3 group-hover:border-gold-500/30 transition-colors">
+                      <p className="text-sm text-slate-600 leading-relaxed pl-11 border-l border-slate-800 ml-3 group-hover:border-gold-500/30 transition-colors">
                         テキスト・画像・音声を統合的に処理するマルチモーダルAI。社内規定や技術文書を学習させ、業務効率を最大化。
                       </p>
                     </motion.div>
@@ -93,9 +93,9 @@ export const Highlights: React.FC = () => {
                         <div className="p-2 rounded bg-navy-900 border border-slate-800 text-gold-400 group-hover:border-gold-500/30 transition-colors">
                           <Network size={20} />
                         </div>
-                        <h4 className="text-lg font-serif text-slate-200 group-hover:text-gold-200 transition-colors">Modern Data Stack</h4>
+                        <h4 className="text-lg font-serif text-slate-800 group-hover:text-gold-200 transition-colors">Modern Data Stack</h4>
                       </div>
-                      <p className="text-sm text-slate-400 leading-relaxed pl-11 border-l border-slate-800 ml-3 group-hover:border-gold-500/30 transition-colors">
+                      <p className="text-sm text-slate-600 leading-relaxed pl-11 border-l border-slate-800 ml-3 group-hover:border-gold-500/30 transition-colors">
                         RedshiftからSnowflakeへの移行完遂。コンピュート分離によるパフォーマンス最適化とコスト効率の向上。
                       </p>
                     </motion.div>

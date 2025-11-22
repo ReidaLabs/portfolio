@@ -65,7 +65,7 @@ export const Background: React.FC = () => {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(212, 175, 55, 0.4)'; // Gold tint
+        ctx.fillStyle = 'rgba(212, 175, 55, 0.3)'; // Gold tint
         ctx.fill();
       }
     }
@@ -96,7 +96,7 @@ export const Background: React.FC = () => {
 
           if (distance < connectionDistance) {
             const opacity = 1 - (distance / connectionDistance);
-            ctx.strokeStyle = `rgba(212, 175, 55, ${opacity * 0.15})`; // Very subtle gold lines
+            ctx.strokeStyle = `rgba(212, 175, 55, ${opacity * 0.2})`; // Subtle gold lines
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -135,23 +135,23 @@ export const Background: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none bg-[#020617]">
-      {/* Deep Radial Gradient for Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(15,23,42,0)_0%,rgba(2,6,23,0.8)_100%)] z-[1]" />
-      
+    <div className="fixed inset-0 z-0 pointer-events-none bg-white">
+      {/* Subtle Gradient for Depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.03)_0%,rgba(255,255,255,0)_100%)] z-[1]" />
+
       {/* Subtle Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.03] z-[2]" 
-           style={{ 
-             backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)', 
-             backgroundSize: '50px 50px' 
-           }} 
+      <div className="absolute inset-0 opacity-[0.02] z-[2]"
+           style={{
+             backgroundImage: 'linear-gradient(rgba(100, 100, 100, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(100, 100, 100, 0.1) 1px, transparent 1px)',
+             backgroundSize: '50px 50px'
+           }}
       />
 
       {/* Canvas for Particles */}
       <canvas ref={canvasRef} className="absolute inset-0 z-[3]" />
-      
-      {/* Noise Overlay */}
-      <div className="absolute inset-0 bg-noise opacity-[0.05] mix-blend-overlay z-[4]" />
+
+      {/* Very Light Noise Overlay */}
+      <div className="absolute inset-0 bg-noise opacity-[0.02] mix-blend-overlay z-[4]" />
     </div>
   );
 };

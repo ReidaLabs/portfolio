@@ -28,7 +28,7 @@ export const SectionTitle: React.FC<Props> = ({ subtitle, title, align = 'left' 
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-3xl md:text-5xl font-serif text-slate-100 tracking-widest leading-relaxed"
+        className="text-3xl md:text-5xl font-serif text-slate-900 tracking-widest leading-relaxed"
       >
         {title}
       </motion.h2>

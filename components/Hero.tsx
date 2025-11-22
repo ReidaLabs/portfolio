@@ -19,16 +19,16 @@ export const Hero: React.FC = () => {
           // Clear
           ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-          ctx.fillStyle = '#e2e8f0'; // slate-200
-          
+          ctx.fillStyle = '#1e293b'; // slate-800
+
           // Using Shippori Mincho with a bold weight to approximate a brush/Kaisho feel
-          ctx.font = '700 56px "Shippori Mincho", "Yu Mincho", serif'; 
+          ctx.font = '700 56px "Shippori Mincho", "Yu Mincho", serif';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
-          
+
           // Add a slight shadow for depth
-          ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
-          ctx.shadowBlur = 4;
+          ctx.shadowColor = "rgba(212, 175, 55, 0.3)";
+          ctx.shadowBlur = 8;
           ctx.shadowOffsetX = 2;
           ctx.shadowOffsetY = 2;
 
@@ -53,7 +53,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-10"
           >
-            <span className="px-5 py-2 border border-gold-500/30 rounded-full bg-gold-900/20 text-gold-300 text-xs tracking-[0.2em] uppercase font-medium backdrop-blur-sm shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+            <span className="px-5 py-2 border border-gold-500/40 rounded-full bg-gold-100/60 text-gold-800 text-xs tracking-[0.2em] uppercase font-medium backdrop-blur-sm shadow-[0_0_15px_rgba(212,175,55,0.15)]">
               Portfolio 2025
             </span>
           </motion.div>
@@ -74,8 +74,8 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="flex flex-col items-center justify-center gap-4"
           >
-            <span className="text-xl md:text-2xl font-serif font-medium text-slate-400 tracking-widest">
-              Data Architect <span className="text-gold-500 mx-2">×</span> Finance Specialist
+            <span className="text-xl md:text-2xl font-serif font-medium text-slate-600 tracking-widest">
+              Data Architect <span className="text-gold-600 mx-2">×</span> Finance Specialist
             </span>
           </motion.h1>
 
@@ -90,17 +90,17 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.9 }}
             transition={{ duration: 1, delay: 0.7 }}
-            className="text-base md:text-lg font-serif text-slate-300 max-w-4xl mb-12 leading-loose tracking-wide"
+            className="text-base md:text-lg font-serif text-slate-700 max-w-4xl mb-12 leading-loose tracking-wide"
           >
-            <p className="mb-6 text-xl md:text-2xl font-semibold text-white">
+            <p className="mb-6 text-xl md:text-2xl font-semibold text-slate-900">
               「会計的整合性」と「データ戦略」の融合。
             </p>
-            <p className="text-slate-300 mb-4">
+            <p className="text-slate-700 mb-4">
               80億レコード規模のデータ基盤構築力と、数十億円を管理した経理・財務の実務知見。<br className="hidden md:block" />
               この二つを掛け合わせることで、単なる可視化にとどまらない<br className="hidden md:block" />
-              <span className="text-gold-200 border-b border-gold-500/30 pb-1">経営層の意思決定に直結するインテリジェントなデータ活用</span>を実現します。
+              <span className="text-gold-700 border-b border-gold-600/40 pb-1 font-semibold">経営層の意思決定に直結するインテリジェントなデータ活用</span>を実現します。
             </p>
-            <p className="text-slate-500 text-sm mt-6 flex items-center justify-center gap-4">
+            <p className="text-slate-600 text-sm mt-6 flex items-center justify-center gap-4">
               <span className="flex items-center gap-2"><span className="w-1 h-1 bg-gold-500 rounded-full"></span>30名規模PM経験</span>
               <span className="flex items-center gap-2"><span className="w-1 h-1 bg-gold-500 rounded-full"></span>アジャイル開発</span>
             </p>
@@ -109,10 +109,10 @@ export const Hero: React.FC = () => {
       </div>
       
       {/* Decorative Vertical Text - Japanese Only */}
-      <div className="hidden lg:block absolute left-10 top-1/2 -translate-y-1/2 text-slate-600 text-xs tracking-[0.6em] [writing-mode:vertical-rl] font-serif opacity-60 border-l border-slate-800 pl-6 h-72">
+      <div className="hidden lg:block absolute left-10 top-1/2 -translate-y-1/2 text-slate-400 text-xs tracking-[0.6em] [writing-mode:vertical-rl] font-serif opacity-60 border-l border-slate-300 pl-6 h-72">
         経営戦略直結型データアーキテクチャ
       </div>
-      <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 text-slate-600 text-xs tracking-[0.6em] [writing-mode:vertical-rl] font-serif opacity-60 border-r border-slate-800 pr-6 h-72">
+      <div className="hidden lg:block absolute right-10 top-1/2 -translate-y-1/2 text-slate-400 text-xs tracking-[0.6em] [writing-mode:vertical-rl] font-serif opacity-60 border-r border-slate-300 pr-6 h-72">
         財務会計視点による価値創出
       </div>
 

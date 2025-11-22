@@ -24,7 +24,7 @@ export const Skills: React.FC = () => {
               
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-8">
-                   <h3 className="text-xl font-serif text-slate-200 tracking-wide group-hover:text-gold-200 transition-colors">{category.title}</h3>
+                   <h3 className="text-xl font-serif text-slate-800 tracking-wide group-hover:text-gold-200 transition-colors">{category.title}</h3>
                    <category.icon className="text-slate-600 group-hover:text-gold-400 transition-colors" size={24} />
                 </div>
 
@@ -35,7 +35,7 @@ export const Skills: React.FC = () => {
                       className={`px-4 py-2 rounded text-xs font-medium transition-all duration-300 tracking-wide ${
                         skill.highlight 
                           ? 'bg-gold-500/10 text-gold-300 border border-gold-500/20' 
-                          : 'bg-slate-800/50 text-slate-400 border border-slate-800 group-hover:border-slate-700 group-hover:text-slate-200'
+                          : 'bg-slate-800/50 text-slate-600 border border-slate-800 group-hover:border-slate-700 group-hover:text-slate-800'
                       }`}
                     >
                       {skill.name}

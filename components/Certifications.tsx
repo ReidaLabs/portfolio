@@ -25,7 +25,7 @@ export const Certifications: React.FC = () => {
               <div className="w-14 h-14 bg-navy-900/80 rounded-full flex items-center justify-center mb-6 text-gold-500 group-hover:scale-110 transition-transform duration-500 border border-slate-800 group-hover:border-gold-500/30">
                 <cert.icon size={24} />
               </div>
-              <h3 className="text-slate-200 font-serif mb-4 text-sm min-h-[40px] flex items-center justify-center leading-tight">
+              <h3 className="text-slate-800 font-serif mb-4 text-sm min-h-[40px] flex items-center justify-center leading-tight">
                 {cert.title}
               </h3>
               <span className="px-4 py-1.5 rounded-full bg-navy-900/80 text-slate-500 text-[10px] border border-slate-800 tracking-widest uppercase font-semibold group-hover:text-gold-400 group-hover:border-gold-500/20 transition-all">

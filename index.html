@@ -58,14 +58,14 @@
         width: 6px;
       }
       ::-webkit-scrollbar-track {
-        background: #020617; 
+        background: #f8fafc;
       }
       ::-webkit-scrollbar-thumb {
-        background: #334155; 
+        background: #cbd5e1;
         border-radius: 3px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #d4af37; 
+        background: #d4af37;
       }
       
       .text-gradient-gold {
@@ -77,10 +77,11 @@
       }
       
       .glass-panel {
-        background: rgba(15, 23, 42, 0.4);
+        background: rgba(255, 255, 255, 0.8);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(212, 175, 55, 0.15);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
       }
 
       @keyframes shine {
@@ -101,7 +102,7 @@
 }
 </script>
 </head>
-<body class="bg-navy-950 text-slate-300 antialiased selection:bg-gold-500/30 selection:text-gold-100 overflow-x-hidden">
+<body class="bg-white text-slate-800 antialiased selection:bg-gold-400/20 selection:text-gold-900 overflow-x-hidden">
     <div id="root"></div>
 <script type="module" src="/index.tsx"></script>
 </body>
