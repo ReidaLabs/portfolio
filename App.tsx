@@ -18,10 +18,10 @@ const App: React.FC = () => {
   });
 
   return (
-    <div className="bg-transparent min-h-screen text-slate-800 selection:bg-gold-400/20 selection:text-gold-900 relative font-sans">
+    <div className="bg-transparent min-h-screen text-slate-700 selection:bg-gold-200 selection:text-gold-900 relative font-sans">
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 origin-left z-50"
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300 origin-left z-50"
         style={{ scaleX }}
       />
 

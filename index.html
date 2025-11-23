@@ -8,15 +8,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
               sans: ['"Noto Sans JP"', 'sans-serif'],
-              serif: ['"Shippori Mincho"', '"Playfair Display"', 'serif'],
+              serif: ['"Shippori Mincho"', '"Noto Serif JP"', '"Playfair Display"', 'serif'],
               display: ['"Cinzel"', 'serif'],
+              name: ['"Noto Serif JP"', 'serif'], // Specific for name
             },
             colors: {
               gold: {
@@ -33,6 +34,10 @@
                 800: '#1e293b',
                 900: '#0f172a',
                 950: '#020617', // Deepest Navy
+              },
+              slate: {
+                50: '#f8fafc', // Very light background
+                850: '#172033', // Custom dark
               }
             },
             backgroundImage: {
@@ -53,35 +58,37 @@
       }
     </script>
     <style>
-      /* Custom Scrollbar */
+      /* Custom Scrollbar - Light Theme */
       ::-webkit-scrollbar {
-        width: 6px;
+        width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #f8fafc;
+        background: #f1f5f9; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #cbd5e1;
-        border-radius: 3px;
+        background: #cbd5e1; 
+        border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #d4af37;
+        background: #94a3b8; 
       }
       
+      /* Gradient Text - Adjusted for White Background */
       .text-gradient-gold {
-        background: linear-gradient(to right, #f5ebc2, #d4af37, #f5ebc2);
+        background: linear-gradient(to right, #b08d28, #d4af37, #b08d28);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-size: 200% auto;
         animation: shine 5s linear infinite;
       }
       
+      /* Glass Panel - Light Theme */
       .glass-panel {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(212, 175, 55, 0.2);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
       }
 
       @keyframes shine {
@@ -90,7 +97,7 @@
         }
       }
     </style>
-    <script type="importmap">
+<script type="importmap">
 {
   "imports": {
     "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
@@ -102,7 +109,7 @@
 }
 </script>
 </head>
-<body class="bg-white text-slate-800 antialiased selection:bg-gold-400/20 selection:text-gold-900 overflow-x-hidden">
+<body class="bg-slate-50 text-slate-600 antialiased selection:bg-gold-100 selection:text-gold-800 overflow-x-hidden">
     <div id="root"></div>
 <script type="module" src="/index.tsx"></script>
 </body>

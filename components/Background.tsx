@@ -16,7 +16,7 @@ export const Background: React.FC = () => {
     canvas.height = height;
 
     const particles: Particle[] = [];
-    const particleCount = Math.min(window.innerWidth / 15, 100); // Responsive count
+    const particleCount = Math.min(window.innerWidth / 15, 80); // Slightly increased count
     const connectionDistance = 150;
     const mouseDistance = 200;
 
@@ -28,24 +28,24 @@ export const Background: React.FC = () => {
       vx: number;
       vy: number;
       size: number;
+      colorType: 'gold' | 'slate';
       
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.3; // Slow, elegant movement
+        this.vx = (Math.random() - 0.5) * 0.3; // Slightly faster for vitality
         this.vy = (Math.random() - 0.5) * 0.3;
-        this.size = Math.random() * 1.5 + 0.5;
+        this.size = Math.random() * 2 + 1; // Slightly larger base size
+        this.colorType = Math.random() > 0.6 ? 'gold' : 'slate'; 
       }
 
       update() {
         this.x += this.vx;
         this.y += this.vy;
 
-        // Bounce off edges softly
         if (this.x < 0 || this.x > width) this.vx *= -1;
         if (this.y < 0 || this.y > height) this.vy *= -1;
 
-        // Mouse interaction
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -65,7 +65,13 @@ export const Background: React.FC = () => {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(212, 175, 55, 0.3)'; // Gold tint
+        
+        // Increased opacity so they are visible but still elegant
+        if (this.colorType === 'gold') {
+           ctx.fillStyle = 'rgba(212, 175, 55, 0.4)'; 
+        } else {
+           ctx.fillStyle = 'rgba(148, 163, 184, 0.4)'; 
+        }
         ctx.fill();
       }
     }
@@ -86,7 +92,6 @@ export const Background: React.FC = () => {
         particle.draw();
       });
 
-      // Draw connections
       particles.forEach((a, index) => {
         for (let j = index + 1; j < particles.length; j++) {
           const b = particles[j];
@@ -96,8 +101,9 @@ export const Background: React.FC = () => {
 
           if (distance < connectionDistance) {
             const opacity = 1 - (distance / connectionDistance);
-            ctx.strokeStyle = `rgba(212, 175, 55, ${opacity * 0.2})`; // Subtle gold lines
-            ctx.lineWidth = 0.5;
+            // Increased opacity from 0.04 to 0.15 so lines are visible
+            ctx.strokeStyle = `rgba(148, 163, 184, ${opacity * 0.2})`; 
+            ctx.lineWidth = 0.5; 
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -135,23 +141,16 @@ export const Background: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none bg-white">
-      {/* Subtle Gradient for Depth */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.03)_0%,rgba(255,255,255,0)_100%)] z-[1]" />
-
-      {/* Subtle Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.02] z-[2]"
-           style={{
-             backgroundImage: 'linear-gradient(rgba(100, 100, 100, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(100, 100, 100, 0.1) 1px, transparent 1px)',
-             backgroundSize: '50px 50px'
-           }}
+    <div className="fixed inset-0 z-0 pointer-events-none bg-slate-50">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0)_0%,rgba(241,245,249,0.5)_100%)] z-[1]" />
+      <div className="absolute inset-0 opacity-[0.03] z-[2]" 
+           style={{ 
+             backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px)', 
+             backgroundSize: '60px 60px' 
+           }} 
       />
-
-      {/* Canvas for Particles */}
       <canvas ref={canvasRef} className="absolute inset-0 z-[3]" />
-
-      {/* Very Light Noise Overlay */}
-      <div className="absolute inset-0 bg-noise opacity-[0.02] mix-blend-overlay z-[4]" />
+      <div className="absolute inset-0 bg-noise opacity-[0.02] mix-blend-multiply z-[4]" />
     </div>
   );
 };

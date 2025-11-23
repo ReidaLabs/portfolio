@@ -18,17 +18,17 @@ export const Certifications: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               whileHover={{ y: -8 }}
-              className="bg-navy-950/40 backdrop-blur-md border border-slate-800 p-8 rounded-xl hover:border-gold-500/40 transition-all duration-500 group flex flex-col items-center text-center relative overflow-hidden shadow-lg"
+              className="bg-white/80 backdrop-blur-md border border-slate-200 p-8 rounded-xl hover:border-gold-400 transition-all duration-500 group flex flex-col items-center text-center relative overflow-hidden shadow-lg hover:shadow-xl"
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               
-              <div className="w-14 h-14 bg-navy-900/80 rounded-full flex items-center justify-center mb-6 text-gold-500 group-hover:scale-110 transition-transform duration-500 border border-slate-800 group-hover:border-gold-500/30">
+              <div className="w-14 h-14 bg-slate-50 rounded-full flex items-center justify-center mb-6 text-gold-600 group-hover:scale-110 transition-transform duration-500 border border-slate-200 group-hover:border-gold-300">
                 <cert.icon size={24} />
               </div>
               <h3 className="text-slate-800 font-serif mb-4 text-sm min-h-[40px] flex items-center justify-center leading-tight">
                 {cert.title}
               </h3>
-              <span className="px-4 py-1.5 rounded-full bg-navy-900/80 text-slate-500 text-[10px] border border-slate-800 tracking-widest uppercase font-semibold group-hover:text-gold-400 group-hover:border-gold-500/20 transition-all">
+              <span className="px-4 py-1.5 rounded-full bg-slate-100 text-slate-500 text-[10px] border border-slate-200 tracking-widest uppercase font-semibold group-hover:text-gold-600 group-hover:bg-gold-50 group-hover:border-gold-200 transition-all">
                 {cert.badge}
               </span>
             </motion.div>

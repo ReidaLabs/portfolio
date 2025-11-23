@@ -16,7 +16,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: 'AWS (ECS/Fargate)', highlight: true },
       { name: 'Terraform', highlight: true },
       { name: 'Docker / Container' },
-      { name: 'AWS (Lambda/S3)' },
+      { name: 'AWS Bedrock / Lambda' },
     ],
   },
   {
@@ -24,20 +24,18 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     icon: Database,
     skills: [
       { name: 'Snowflake', highlight: true },
+      { name: 'DynamoDB' },
       { name: 'Amazon Redshift' },
       { name: 'PostgreSQL' },
-      { name: 'Oracle Database' },
-      { name: 'SQL Server' },
     ],
   },
   {
     title: 'AI & 先端技術',
     icon: Brain,
     skills: [
-      { name: 'Claude Code', highlight: true },
-      { name: 'MCP (Model Context Protocol)', highlight: true },
-      { name: 'RAG Development', highlight: true },
+      { name: 'Snowflake Cortex', highlight: true },
       { name: 'Dify Implementation', highlight: true },
+      { name: 'RAG Architecture', highlight: true },
       { name: 'Generative AI / LLM' },
     ],
   },
@@ -46,38 +44,91 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     icon: Code,
     skills: [
       { name: 'Streamlit', highlight: true },
-      { name: 'Tableau / QuickSight' },
-      { name: 'Matillion (ETL)' },
       { name: 'React / TypeScript' },
+      { name: 'Python' },
+      { name: 'Tableau' },
     ],
   },
 ];
 
-// Featured Project (Current Role)
+// Featured Project (Consolidated)
 export const FEATURED_EXPERIENCE = {
-  period: '2018.10 - 現在',
-  company: '大手事業会社',
-  title: '全社規模DWH構築・生成AI活用基盤開発',
-  role: 'Project Manager / Lead Architect',
-  description: '約2万人の従業員が利用する全社情報基盤の刷新プロジェクトにおいて、30名規模のチームを率いるPMとして従事。アジャイル開発体制の構築から、PLとしての詳細なタスク管理・品質担保までを兼務。80億レコード規模のDWH構築と、非エンジニアでも高度な分析が可能となるセルフBI環境の整備、さらには社内規定や技術文書を学習させたマルチモーダルRAGシステムの開発までを一貫して完遂。',
+  // Date removed as requested
+  company: 'Integrated Project',
+  title: 'AI × 情報基盤 × 経理 / 統合データ戦略',
+  role: 'PM / PL / Tech Advisor',
+  description: '現在、大手ゼネコンおよび大手ホビーメーカーにて、生成AIと大規模データ基盤を統合する最先端プロジェクトを牽引。経理・財務の実務知識（ドメイン知識）と、Snowflake/AWS等のモダンな技術力を融合させ、経営判断に資する高付加価値な情報基盤を構築している。',
+  metrics: [
+    { value: '20,000+', label: '全社ユーザー数' },
+    { value: '30+', label: 'チームマネジメント数' },
+    { value: '80億+', label: '処理レコード数' }
+  ],
   details: [
     {
-      title: '30名規模のチームマネジメント (PM/PL)',
-      desc: 'ベンダー及び社内メンバー混合の30名体制をリード。アジャイル開発プロセス（Scrum）を導入し、変動する要件に対して柔軟に対応しつつ、品質と納期を厳守。WBS作成から日次の進捗管理まで徹底したプロジェクト管理を実行。'
+      title: 'AI Driven Accounting (経理AI)',
+      desc: 'Snowflake Cortex Agentを活用し、自然言語による複雑な経理分析を実現。予実管理や変動要因分析を自動化し、経営の意思決定速度を向上。'
     },
     {
-      title: '次世代データ活用基盤 (Snowflake)',
-      desc: 'RedshiftからSnowflakeへの移行を指揮。コンピュートとストレージの分離により、同時接続数の課題を解決し、クエリパフォーマンスを平均300%向上。'
+      title: 'Enterprise AI Platform (全社AI)',
+      desc: 'Difyを用いたセキュアな社内AI基盤を構築。RAGによる社内ナレッジ活用を推進し、組織横断的な業務効率化とDXを加速。'
     },
     {
-      title: 'エンタープライズAIチャットボット (Dify + RAG)',
-      desc: 'Difyを活用し、社内ドキュメント（テキスト・画像・音声）を横断的に検索・回答する高精度RAGシステムを構築。セキュリティを担保しつつ、業務効率化を実現。'
+      title: 'Data Governance (情報基盤)',
+      desc: '80億レコード規模のDWHにおけるガバナンス設計と、経理的整合性を担保したデータモデルの構築。'
     }
   ],
-  techStack: ['Snowflake', 'AWS', 'Dify', 'Python', 'Streamlit', 'Project Management', 'Agile/Scrum']
+  techStack: ['Snowflake', 'Cortex Agent', 'Dify', 'Python', 'AWS', 'LLM', 'Agile']
 };
 
 export const EXPERIENCES: Experience[] = [
+  {
+    period: '2025.12 - 現在',
+    title: '経理特化型AIエージェント構築 (大手ゼネコン)',
+    role: 'PL / Tech Advisor',
+    description: 'Snowflake Cortex Agentを活用した次世代経理分析システムの構築プロジェクト。PLとしてプロジェクト推進を行うと同時に、技術アドバイザーとしてアーキテクチャ設計および経理ドメイン知識の実装をリード。',
+    achievements: [
+      'Cortex Agentによる自然言語データ分析の実現',
+      '経理データモデルの最適化と整合性担保',
+      '意思決定支援型AIのプロトタイプ構築'
+    ],
+    tech: ['Snowflake', 'Cortex', 'Python', 'SQL']
+  },
+  {
+    period: '2025.12 - 現在',
+    title: '全社AI活用基盤構築 (大手ホビーメーカー)',
+    role: 'PM / PL',
+    description: 'Difyを用いた全社共通AIプラットフォームの構築プロジェクト。PMとしてロードマップ策定・要件定義を行い、PLとしてセキュアな環境構築と社内データ連携(RAG)の実装を指揮。',
+    achievements: [
+      'Difyを活用した社内AIチャットボットの全社展開',
+      '機密情報を考慮したセキュリティ/ガバナンス設計',
+      'マルチモーダルAI活用の推進'
+    ],
+    tech: ['Dify', 'AWS', 'RAG', 'LLM']
+  },
+  {
+    period: '2025.04 - 2025.09',
+    title: 'ECサイト刷新・AWS EDI基盤刷新',
+    role: 'Team Leader',
+    description: '事業会社にてECサイト刷新プロジェクトのAI/分析領域をリード。並行してAWSマネージドサービスを駆使したEDI（電子データ交換）システムの刷新を担当。',
+    achievements: [
+      'Bedrock, DynamoDB, Step Functionsを用いたサーバーレスワークフロー構築',
+      'レガシーEDIからの脱却と運用コストの大幅削減',
+      'ECデータ分析基盤の設計とチームマネジメント'
+    ],
+    tech: ['AWS Bedrock', 'DynamoDB', 'Step Functions', 'Python']
+  },
+  {
+    period: '2018.10 - 2025.03',
+    title: '全社規模DWH構築・生成AI活用基盤開発',
+    role: 'PM / Lead Architect',
+    description: '30名規模のチームを率い、全社DWH刷新(Snowflake)及び生成AI基盤構築を指揮。詳細な設計と実装も兼務し、データ駆動型経営への変革を推進。',
+    achievements: [
+      '80億レコード超の大規模データ移行とSnowflake基盤構築',
+      '社内RAGシステム(Dify)の全社展開とセキュリティ設計',
+      'データスチュワードシップの確立とデータガバナンス強化'
+    ],
+    tech: ['Snowflake', 'AWS', 'Dify', 'Python']
+  },
   {
     period: '2015.04 - 2018.09',
     title: '社内情報活用プラットフォーム開発',

@@ -17,10 +17,10 @@ export const SectionTitle: React.FC<Props> = ({ subtitle, title, align = 'left' 
         transition={{ duration: 0.6 }}
         className={`flex items-center gap-4 mb-5 ${align === 'center' ? 'justify-center' : ''}`}
       >
-        <span className="text-gold-500/60 font-display tracking-[0.3em] text-[10px] font-bold uppercase">
+        <span className="text-gold-600/80 font-display tracking-[0.3em] text-[10px] font-bold uppercase">
           {subtitle}
         </span>
-        <div className="h-px w-12 bg-gold-500/20" />
+        <div className="h-px w-12 bg-gold-400/40" />
       </motion.div>
       
       <motion.h2 
@@ -28,7 +28,7 @@ export const SectionTitle: React.FC<Props> = ({ subtitle, title, align = 'left' 
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-3xl md:text-5xl font-serif text-slate-900 tracking-widest leading-relaxed"
+        className="text-3xl md:text-5xl font-serif text-slate-800 tracking-widest leading-relaxed"
       >
         {title}
       </motion.h2>

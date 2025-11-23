@@ -8,7 +8,7 @@ export const Timeline: React.FC = () => {
     <section className="py-32 px-4 md:px-10 relative overflow-hidden z-10">
       <div className="container mx-auto max-w-6xl">
         
-        {/* FEATURED SECTION (2018-Present) */}
+        {/* FEATURED SECTION (Consolidated) */}
         <div className="mb-40">
           <SectionTitle subtitle="CURRENT FOCUS" title="主要プロジェクト" align="center" />
           
@@ -17,40 +17,46 @@ export const Timeline: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="mt-16 glass-panel rounded-2xl p-8 md:p-12 border border-gold-500/20 relative overflow-hidden group bg-navy-950/50"
+            className="mt-16 glass-panel rounded-2xl p-8 md:p-12 border border-white/60 relative overflow-hidden group bg-white/80 shadow-xl"
           >
-             <div className="absolute top-0 right-0 w-64 h-64 bg-gold-500/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+             <div className="absolute top-0 right-0 w-64 h-64 bg-gold-500/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
              
              <div className="relative z-10">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pb-8 border-b border-slate-800">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pb-8 border-b border-slate-200">
                   <div>
-                    <div className="text-gold-400 font-display text-sm tracking-[0.2em] mb-2 font-bold">
-                      {FEATURED_EXPERIENCE.period}
+                    {/* Period removed as requested */}
+                    <div className="flex items-center gap-2 mb-3">
+                       <span className="px-3 py-1 bg-gold-100 text-gold-700 text-[10px] font-bold tracking-widest uppercase rounded-full border border-gold-200">
+                         Featured
+                       </span>
                     </div>
-                    <h3 className="text-3xl md:text-4xl font-serif text-slate-100 mb-3">
+                    <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-3">
                       {FEATURED_EXPERIENCE.title}
                     </h3>
                     <div className="text-lg text-slate-700 font-medium">
-                      {FEATURED_EXPERIENCE.role} <span className="mx-2 text-slate-600">|</span> {FEATURED_EXPERIENCE.company}
+                      {FEATURED_EXPERIENCE.role}
                     </div>
                   </div>
-                  <div className="flex gap-2 flex-wrap">
-                    {FEATURED_EXPERIENCE.techStack.slice(0,4).map(t => (
-                       <span key={t} className="px-3 py-1 border border-gold-500/20 text-gold-300 text-xs rounded-full bg-gold-500/5 font-medium">
-                         {t}
-                       </span>
+                  
+                  {/* Metrics Display */}
+                  <div className="flex flex-wrap gap-6 md:gap-8 justify-start md:justify-end mt-4 md:mt-0">
+                    {FEATURED_EXPERIENCE.metrics.map((m, i) => (
+                      <div key={i} className="text-left md:text-right">
+                        <div className="text-xl md:text-2xl font-bold text-slate-800 font-display">{m.value}</div>
+                        <div className="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">{m.label}</div>
+                      </div>
                     ))}
                   </div>
                 </div>
 
-                <p className="text-slate-700 leading-loose mb-12 text-lg max-w-4xl tracking-wide">
+                <p className="text-slate-700 leading-loose mb-12 text-lg max-w-4xl tracking-wide font-medium">
                   {FEATURED_EXPERIENCE.description}
                 </p>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-3 gap-8 mb-10">
                   {FEATURED_EXPERIENCE.details.map((detail, i) => (
-                    <div key={i} className="bg-navy-900/60 p-6 rounded-xl border border-slate-800 hover:border-gold-500/40 transition-colors shadow-lg backdrop-blur-sm">
-                      <h4 className="text-gold-200 font-serif text-lg mb-4 flex items-center gap-2">
+                    <div key={i} className="bg-white p-6 rounded-xl border border-slate-200 hover:border-gold-300 transition-colors shadow-md hover:shadow-lg">
+                      <h4 className="text-gold-700 font-serif text-lg mb-4 flex items-center gap-2 font-bold">
                         <span className="w-1.5 h-1.5 bg-gold-500 rounded-full"></span>
                         {detail.title}
                       </h4>
@@ -60,6 +66,14 @@ export const Timeline: React.FC = () => {
                     </div>
                   ))}
                 </div>
+
+                <div className="flex gap-2 flex-wrap">
+                    {FEATURED_EXPERIENCE.techStack.map(t => (
+                       <span key={t} className="px-3 py-1 border border-slate-200 text-slate-600 text-xs rounded-full bg-slate-50 font-medium hover:text-gold-600 hover:border-gold-200 transition-colors">
+                         {t}
+                       </span>
+                    ))}
+                </div>
              </div>
           </motion.div>
         </div>
@@ -68,13 +82,13 @@ export const Timeline: React.FC = () => {
         <SectionTitle subtitle="HISTORY" title="キャリアの軌跡" align="left" />
 
         <div className="relative mt-20 pl-8 md:pl-0 max-w-5xl mx-auto">
-          <div className="absolute left-8 md:left-[50%] top-0 bottom-0 w-px bg-gradient-to-b from-slate-700 via-slate-800 to-transparent md:-translate-x-1/2" />
+          <div className="absolute left-8 md:left-[50%] top-0 bottom-0 w-px bg-gradient-to-b from-slate-300 via-slate-400 to-transparent md:-translate-x-1/2" />
 
           {EXPERIENCES.map((exp, index) => (
-            <div key={index} className={`relative flex flex-col md:flex-row gap-8 md:gap-0 mb-24 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+            <div key={index} className={`relative flex flex-col md:flex-row gap-8 md:gap-0 mb-24 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
               
               {/* Center Dot */}
-              <div className="absolute left-8 md:left-1/2 w-5 h-5 rounded-full bg-navy-950 border-[3px] border-slate-600 transform -translate-x-[9.5px] md:-translate-x-1/2 mt-1.5 z-20 group-hover:border-gold-500 transition-colors shadow-[0_0_10px_rgba(0,0,0,0.5)]" />
+              <div className="absolute left-8 md:left-1/2 w-5 h-5 rounded-full bg-white border-[3px] border-slate-400 transform -translate-x-[9.5px] md:-translate-x-1/2 mt-1.5 z-20 group-hover:border-gold-500 transition-colors shadow-md" />
 
               {/* Content */}
               <div className="md:w-1/2 md:px-16 pl-12">
@@ -85,17 +99,17 @@ export const Timeline: React.FC = () => {
                   transition={{ duration: 0.5 }}
                   className="group"
                 >
-                  <div className="text-gold-500/80 text-sm font-bold tracking-widest mb-2 font-display">{exp.period}</div>
-                  <h3 className="text-2xl font-serif font-bold text-slate-100 mb-2 group-hover:text-gold-300 transition-colors duration-300">{exp.title}</h3>
-                  <div className="text-base text-slate-700 mb-5 font-medium border-b border-slate-800/50 pb-2 inline-block">
+                  <div className="text-gold-600 text-sm font-bold tracking-widest mb-2 font-display">{exp.period}</div>
+                  <h3 className="text-2xl font-serif font-bold text-slate-800 mb-2 group-hover:text-gold-700 transition-colors duration-300">{exp.title}</h3>
+                  <div className="text-base text-slate-700 mb-5 font-medium border-b border-slate-200 pb-2 inline-block">
                     {exp.role}
                   </div>
                   
-                  <p className="text-slate-600 text-sm leading-relaxed mb-6 tracking-wide">
+                  <p className="text-slate-600 text-sm leading-relaxed mb-6 tracking-wide font-medium">
                     {exp.description}
                   </p>
 
-                  <div className="space-y-2 bg-navy-900/40 backdrop-blur-sm p-4 rounded border border-slate-800/50">
+                  <div className="space-y-2 bg-white/80 backdrop-blur-sm p-4 rounded-lg border border-slate-200 shadow-sm">
                      {exp.achievements.map((ach, i) => (
                        <div key={i} className="text-xs text-slate-600 leading-relaxed flex items-start gap-2">
                          <span className="text-gold-500 mt-1">•</span>

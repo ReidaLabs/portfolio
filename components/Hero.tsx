@@ -5,34 +5,77 @@ export const Hero: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [nameImage, setNameImage] = useState<string>('');
 
-  // Generate Name as Image to prevent SEO indexing
   useEffect(() => {
-    // Wait for fonts to load to ensure "Shippori Mincho" is used
     document.fonts.ready.then(() => {
       if (canvasRef.current) {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
         if (ctx) {
           canvas.width = 400;
-          canvas.height = 120; // Slightly taller for vertical balance
+          canvas.height = 160; 
           
-          // Clear
           ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-          ctx.fillStyle = '#1e293b'; // slate-800
-
-          // Using Shippori Mincho with a bold weight to approximate a brush/Kaisho feel
-          ctx.font = '700 56px "Shippori Mincho", "Yu Mincho", serif';
-          ctx.textAlign = 'center';
+          ctx.fillStyle = '#1e293b'; 
+          
+          // Using Noto Serif JP
+          const fontSize = 56;
+          ctx.font = `700 ${fontSize}px "Noto Serif JP", serif`; 
+          ctx.textAlign = 'left';
           ctx.textBaseline = 'middle';
+          
+          ctx.shadowColor = "rgba(0, 0, 0, 0.1)";
+          ctx.shadowBlur = 2;
+          ctx.shadowOffsetX = 1;
+          ctx.shadowOffsetY = 1;
 
-          // Add a slight shadow for depth
-          ctx.shadowColor = "rgba(212, 175, 55, 0.3)";
-          ctx.shadowBlur = 8;
-          ctx.shadowOffsetX = 2;
-          ctx.shadowOffsetY = 2;
+          // --- Composite Character Logic for "禮" (Rei) with "礻" (Ne-hen) ---
+          // 1. Calculate positions to center the name
+          const suffix = '田 純一';
+          const suffixMetrics = ctx.measureText(suffix);
+          const charApproxWidth = fontSize; 
+          const totalWidth = charApproxWidth + suffixMetrics.width;
+          
+          const startX = (canvas.width - totalWidth) / 2;
+          const y = canvas.height / 2 - 20;
 
-          ctx.fillText('禮田 純一', canvas.width / 2, canvas.height / 2);
+          // 2. Draw suffix "田 純一"
+          ctx.fillText(suffix, startX + charApproxWidth, y);
+
+          // 3. Draw Composite "Rei" (礻 + 豊) at startX
+          // Technique: Draw '礼' (for 礻), erase right side, draw '豊' (squeezed) on right.
+          const reiX = startX;
+
+          // Step A: Draw '礼' (Rei) which has the correct '礻' (Ne-hen)
+          ctx.fillText('礼', reiX, y);
+
+          // Step B: Erase the right part of '礼' (the '乚')
+          ctx.globalCompositeOperation = 'destination-out';
+          // Erase rectangle relative to character start.
+          // Values tuned for 56px font size.
+          ctx.fillRect(reiX + 22, y - 30, 40, 60);
+          
+          ctx.globalCompositeOperation = 'source-over';
+          ctx.fillStyle = '#1e293b'; // Reset color
+
+          // Step C: Draw '豊' (Yutaka) squeezed into the right side
+          ctx.save();
+          // Translate to the cleared area
+          ctx.translate(reiX + 18, y); 
+          // Scale horizontally to fit '豊' into the remaining space
+          ctx.scale(0.75, 1); 
+          // Draw '豊'. 
+          ctx.fillText('豊', 0, 0);
+          ctx.restore();
+
+          // --- End Composite Logic ---
+
+          // Romaji Furigana
+          ctx.font = '500 16px "Cinzel", serif'; 
+          ctx.fillStyle = '#b08d28'; // Gold color
+          ctx.textAlign = 'center';
+          ctx.letterSpacing = '0.2em';
+          ctx.fillText('JUNICHI REIDA', canvas.width / 2, canvas.height / 2 + 35);
+          
           setNameImage(canvas.toDataURL());
         }
       }
@@ -41,7 +84,6 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 md:px-10 pt-20 overflow-hidden">
-      {/* Hidden canvas for generating name image */}
       <canvas ref={canvasRef} className="hidden" />
 
       <div className="container mx-auto relative z-10">
@@ -53,19 +95,18 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-10"
           >
-            <span className="px-5 py-2 border border-gold-500/40 rounded-full bg-gold-100/60 text-gold-800 text-xs tracking-[0.2em] uppercase font-medium backdrop-blur-sm shadow-[0_0_15px_rgba(212,175,55,0.15)]">
+            <span className="px-5 py-2 border border-gold-600/30 rounded-full bg-white/50 text-gold-600 text-xs tracking-[0.2em] uppercase font-medium backdrop-blur-sm shadow-sm">
               Portfolio 2025
             </span>
           </motion.div>
 
-          {/* Name Image Display */}
           <motion.div
              initial={{ opacity: 0, scale: 0.9 }}
              animate={{ opacity: 1, scale: 1 }}
              transition={{ duration: 1, delay: 0.3 }}
              className="mb-8"
           >
-            {nameImage && <img src={nameImage} alt="Profile Name" className="h-20 md:h-24 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" />}
+            {nameImage && <img src={nameImage} alt="JUNICHI REIDA" className="h-32 md:h-40 object-contain" />}
           </motion.div>
 
           <motion.h1 
@@ -74,7 +115,7 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="flex flex-col items-center justify-center gap-4"
           >
-            <span className="text-xl md:text-2xl font-serif font-medium text-slate-600 tracking-widest">
+            <span className="text-xl md:text-2xl font-serif font-medium text-slate-700 tracking-widest">
               Data Architect <span className="text-gold-600 mx-2">×</span> Finance Specialist
             </span>
           </motion.h1>
@@ -98,9 +139,9 @@ export const Hero: React.FC = () => {
             <p className="text-slate-700 mb-4">
               80億レコード規模のデータ基盤構築力と、数十億円を管理した経理・財務の実務知見。<br className="hidden md:block" />
               この二つを掛け合わせることで、単なる可視化にとどまらない<br className="hidden md:block" />
-              <span className="text-gold-700 border-b border-gold-600/40 pb-1 font-semibold">経営層の意思決定に直結するインテリジェントなデータ活用</span>を実現します。
+              <span className="text-gold-700 border-b border-gold-500/30 pb-1 font-medium">経営層の意思決定に直結するインテリジェントなデータ活用</span>を実現します。
             </p>
-            <p className="text-slate-600 text-sm mt-6 flex items-center justify-center gap-4">
+            <p className="text-slate-500 text-sm mt-6 flex items-center justify-center gap-4">
               <span className="flex items-center gap-2"><span className="w-1 h-1 bg-gold-500 rounded-full"></span>30名規模PM経験</span>
               <span className="flex items-center gap-2"><span className="w-1 h-1 bg-gold-500 rounded-full"></span>アジャイル開発</span>
             </p>
@@ -108,7 +149,6 @@ export const Hero: React.FC = () => {
         </div>
       </div>
       
-      {/* Decorative Vertical Text - Japanese Only */}
       <div className="hidden lg:block absolute left-10 top-1/2 -translate-y-1/2 text-slate-400 text-xs tracking-[0.6em] [writing-mode:vertical-rl] font-serif opacity-60 border-l border-slate-300 pl-6 h-72">
         経営戦略直結型データアーキテクチャ
       </div>
@@ -122,7 +162,7 @@ export const Hero: React.FC = () => {
         transition={{ delay: 2, duration: 1 }}
         className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-gold-500/50"
       >
-        <div className="w-[1px] h-16 bg-gradient-to-b from-gold-500/0 via-gold-500/70 to-gold-500/0"></div>
+        <div className="w-[1px] h-16 bg-gradient-to-b from-gold-500/0 via-gold-500 to-gold-500/0"></div>
       </motion.div>
     </section>
   );
