@@ -33,9 +33,12 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: 'AI & 先端技術',
     icon: Brain,
     skills: [
-      { name: 'Snowflake Cortex', highlight: true },
+      { name: 'Cortex Analyst / Search / Agents', highlight: true },
+      { name: 'CoWork (旧 Snowflake Intelligence)', highlight: true },
+      { name: 'CoCo (旧 Cortex Code)', highlight: true },
+      { name: 'Semantic View 設計', highlight: true },
       { name: 'Dify Implementation', highlight: true },
-      { name: 'RAG Architecture', highlight: true },
+      { name: 'RAG Architecture' },
       { name: 'Generative AI / LLM' },
     ],
   },
@@ -57,7 +60,7 @@ export const FEATURED_EXPERIENCE = {
   company: 'Integrated Project',
   title: 'AI × 情報基盤 × 経理 / 統合データ戦略',
   role: 'PM / PL / Tech Advisor',
-  description: '現在、大手ゼネコンおよび大手ホビーメーカーにて、生成AIと大規模データ基盤を統合する最先端プロジェクトを牽引。経理・財務の実務知識（ドメイン知識）と、Snowflake/AWS等のモダンな技術力を融合させ、経営判断に資する高付加価値な情報基盤を構築している。',
+  description: '現在、大手リース会社デジタル戦略室にて、Snowflake Cortex（Analyst / Search / Agents）と CoWork（旧 Snowflake Intelligence）を中核とする自然言語データ活用基盤を、提案・要件定義からPoC・本番まで一気通貫でリード。セマンティックビューの設計から構築し、経理・財務の実務知識とモダンデータスタックの技術力を融合させ、経営判断に資する高付加価値な情報基盤を実現している。',
   metrics: [
     { value: '20,000+', label: '全社ユーザー数' },
     { value: '30+', label: 'チームマネジメント数' },
@@ -77,12 +80,24 @@ export const FEATURED_EXPERIENCE = {
       desc: '80億レコード規模のDWHにおけるガバナンス設計と、経理的整合性を担保したデータモデルの構築。'
     }
   ],
-  techStack: ['Snowflake', 'Cortex Agent', 'Dify', 'Python', 'AWS', 'LLM', 'Agile']
+  techStack: ['Snowflake', 'Cortex Analyst', 'Cortex Agents', 'CoWork', 'Semantic View', 'Dify', 'AWS', 'LLM']
 };
 
 export const EXPERIENCES: Experience[] = [
   {
-    period: '2025.12 - 現在',
+    period: '2026.04 - 現在',
+    title: 'Snowflake Cortex データ活用基盤構築 (大手リース会社)',
+    role: 'PM / Tech Advisor',
+    description: '大手リース会社デジタル戦略室にて、Snowflake Cortex を中核とする自然言語データ活用基盤を、提案・要件定義からPoC・本番まで一気通貫でリード。フルリモートで推進し、本番後は保守フェーズ（4名）へ移行。',
+    achievements: [
+      'セマンティックビューの設計を起点に、Cortex Analyst / Search / Agents・CoWork（旧 Snowflake Intelligence）を組み合わせた構成を設計から構築',
+      '提案〜要件定義〜PoC〜本番までを一気通貫でPM/Tech Advisorとして主導',
+      '数億レコード規模のデータを対象に、自然言語によるデータ活用を実現'
+    ],
+    tech: ['Snowflake', 'Cortex Analyst', 'Cortex Search', 'Cortex Agents', 'CoWork', 'Semantic View']
+  },
+  {
+    period: '2025.12 - 2026.02',
     title: '経理特化型AIエージェント構築 (大手ゼネコン)',
     role: 'PL / Tech Advisor',
     description: 'Snowflake Cortex Agentを活用した次世代経理分析システムの構築プロジェクト。PLとしてプロジェクト推進を行うと同時に、技術アドバイザーとしてアーキテクチャ設計および経理ドメイン知識の実装をリード。',
@@ -94,7 +109,7 @@ export const EXPERIENCES: Experience[] = [
     tech: ['Snowflake', 'Cortex', 'Python', 'SQL']
   },
   {
-    period: '2025.12 - 現在',
+    period: '2025.12 - 2026.06',
     title: '全社AI活用基盤構築 (大手ホビーメーカー)',
     role: 'PM / PL',
     description: 'Difyを用いた全社共通AIプラットフォームの構築プロジェクト。PMとしてロードマップ策定・要件定義を行い、PLとしてセキュアな環境構築と社内データ連携(RAG)の実装を指揮。',
